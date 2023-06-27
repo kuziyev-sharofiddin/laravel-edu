@@ -1,0 +1,306 @@
+
+.news{
+    width: 100%;
+    padding: 40px 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    @include media(900px){
+      padding: 20px 0;
+    }
+    background: #F7F9FA;
+    .news-in{
+        width: 100%;
+        .top{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .txt-48{
+              color: $c00;
+              font-weight: 600;
+            }
+        }
+        .main-content {
+          width: 100%;
+          margin-top: 20px;
+          position: relative;
+          .swiper-wrapper{
+            padding:0 0 45px 0;
+          }
+          .s-card {
+            margin-top: 24px;
+            background: $cff;
+            box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.07);
+            border-radius: 12px;
+            width: 32%;
+            .bottom-card{
+              display: flex;
+              flex-direction: column;
+              padding: 0 24px 24px 24px;
+            }
+            @include media(1050px){
+              width: 48.5%;
+            }
+            @include media(700px){
+              width: 100%;
+            }
+            display: flex;
+            flex-direction: column;
+            &:hover{
+              box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+              .bg-i{
+                &::before{
+                  left: -200%;
+                }
+                img{
+                  transform: scale(1.05);
+                }
+              }
+              .txt-24{
+                color: $c16;
+              }
+            }
+            .bg-i{
+              border-radius: 12px;
+              position: relative;
+              overflow: hidden;
+              width: 100%;
+              height: 267px;
+              &::before{
+                content: "";
+                position: absolute;
+                width: 200%;
+                height: 200%;
+                border-radius: 50%;
+                transform: rotate(45deg);
+                z-index: 3;
+                left: -100%;
+                background-color: rgba(255, 255, 255, 0.2);
+                transition: all 0.5s;
+              }
+  
+            }
+            .top {
+              width: 100%;
+              height: 100%;
+              transition: .5s;
+              
+            }
+            .sana{
+              width: 100%;
+              text-align: start;
+              display: flex;
+              align-items: center;
+              margin-top: 10px;
+              .txt-16 {
+                  color: #595C61;
+                  font-weight: 300;
+                  margin-top: 0;
+              }
+              svg{
+                  font-weight: 100;
+                  opacity: 0.8;
+                  width: 17px;
+                  height: 17px;
+                  margin: 0 10px 0 0;
+                  path{
+                    fill: #595C61;
+                  }
+              }
+          }
+  
+            .txt-24 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              color: $c00;
+              text-align: start;
+              margin-top: 12px;
+              transition: .2s;
+              font-weight: 600;
+              overflow: hidden;
+
+            }
+  
+            .txt-16 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+              margin-top: 12px;
+              color: #595F65;
+              text-align: start;
+              font-weight: 400;
+            }
+  
+          }
+          .s-card-video {
+            margin-top: 24px;
+            border-radius: 12px;
+            width: 32%;
+            .bottom-card{
+              display: flex;
+              flex-direction: column;
+              padding: 0 24px 24px 24px;
+            }
+            @include media(1050px){
+              width: 48.5%;
+            }
+            @include media(700px){
+              width: 100%;
+            }
+            display: flex;
+            flex-direction: column;
+            .bg-i{
+              transition: .3s;
+              &:hover{
+                transform: translateY(-10px);
+                box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+                &::before{
+                  left: -200%;
+                }
+              }
+              .play{
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                border-radius: 50%;
+                left: 50%;
+                top: 50%;
+                z-index: 5;
+                transform: translate(-50%,-50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: .3s;
+                &:hover{
+                  opacity: 1;
+                }
+                svg{
+                  width: 30px;
+                  height: 30px;
+                }
+                background: $c16;
+                opacity: .8;
+              }
+              border-radius: 12px;
+              position: relative;
+              overflow: hidden;
+              width: 100%;
+              height: 267px;
+              &::before{
+                content: "";
+                position: absolute;
+                width: 200%;
+                height: 200%;
+                border-radius: 50%;
+                transform: rotate(45deg);
+                z-index: 3;
+                left: -100%;
+                background-color: rgba(255, 255, 255, 0.2);
+                transition: all 0.5s;
+              }
+  
+            }
+            .top {
+              width: 100%;
+              height: 100%;
+              transition: .5s;
+              
+            }
+            .sana{
+              width: 100%;
+              text-align: start;
+              display: flex;
+              align-items: center;
+              margin-top: 20px;
+              .txt-16 {
+                  color: #595C61;
+                  font-weight: 300;
+                  margin-top: 0;
+              }
+              svg{
+                  font-weight: 100;
+                  opacity: 0.8;
+                  width: 17px;
+                  height: 17px;
+                  margin: 0 10px 0 0;
+                  path{
+                    fill: #595C61;
+                  }
+              }
+          }
+  
+            .txt-20 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              color: $c00;
+              text-align: start;
+              margin-top: 12px;
+              transition: .2s;
+              font-weight: 600;
+              overflow: hidden;
+
+            }
+  
+            .txt-16 {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+              margin-top: 12px;
+              color: #595F65;
+              text-align: start;
+              font-weight: 400;
+            }
+  
+          }
+          .glavni-btn {
+            padding: 0;
+            border: 1px solid #cff;
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            box-shadow: none;
+            z-index: 5;
+            border-radius: 50%;
+            top: 48%;
+
+            &:active {
+              top: 48%;
+            }
+
+            svg {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 24px;
+              height: 24px;
+            }
+            &:hover{
+              border: 1px solid $c16;
+                svg{
+                    path{
+                        fill: $c16;
+                    }
+                }
+            }
+          }
+          .btn-prev1{
+            position: absolute;
+            left: -30px;
+          }
+          .btn-next1{
+            position: absolute;
+            right: -30px;
+          }
+
+        }
+    }
+}
+
+
+
+

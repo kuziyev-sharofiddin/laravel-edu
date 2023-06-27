@@ -1,0 +1,297 @@
+// .fancybox-image, .fancybox-spaceball {
+//   background: transparent;
+//   border: 0;
+//   height: 450px;
+//   left: 50%;
+//   margin: 0;
+//   max-height: none;
+//   max-width: none;
+//   padding: 0;
+//   position: absolute;
+//   top: 50%;
+//   transform: translate(-50%,-50%);
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+//   width: 600px;
+//   object-position: center;
+//   object-fit: cover;
+//   @include media(650px){
+//     width: 300px;
+//     height: 220px;
+// }
+// }
+
+.dark{
+  width: 50px;
+  height: 50px;
+  @include media(650px){
+      width: 35px;
+      height: 35px;
+      top: 180px;
+  }
+  background: #011025;
+  border-radius: 50%;
+  position: fixed;
+  top: 300px;
+  left: 12px;
+  z-index: 4;
+  cursor: pointer;
+  transition: .3s ease;
+  &:hover{
+      transform: translateY(-10px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);  
+  }
+  &.active{
+      background: #F8FBDA;
+      .sun{
+          opacity: 1;
+          top: 50%;
+      }
+      .moon{
+          opacity: 0;
+          top: 60%;
+      }
+  }
+  img{
+      width: 24px;
+      @include media(650px){
+          width: 16px;
+      }
+      position: absolute;
+      left: 50%;
+      transition: .3s ease;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+  }
+  .sun{
+      opacity: 0;
+      top: 60%;
+  }
+  .moon{
+      opacity: 1;
+      top: 50%;
+  }
+}
+
+
+
+
+.glavni {
+  width              : 100%;
+  @include media(650px){
+    padding: 0 !important;
+  }
+  .glavni-in {
+    width: 100%;
+    position: relative;
+    height: 600px;
+  
+    
+    .swiper-container{
+      width: 100%;
+      height: 100%;
+      .swiper-button-next, .swiper-button-prev {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        background: linear-gradient(180deg,rgba(44,93,169,0),#15458c 100%);
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $cff;
+        transition: .3s;
+        opacity: .7;
+        &:hover{
+          opacity: 1;
+        }
+        &::after{
+          font-size: 16px !important;
+        }
+    }
+      .swiper-wrapper{
+        padding: 0;
+      }
+      .card-glavni{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        &::before{
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background: linear-gradient(180deg,rgba(44,93,169,0),#15458c 100%);
+          span{
+            color: $c16;
+            background: $c16;
+          }
+        }
+        .img-glavni{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit:cover ;
+          z-index: -1;
+          animation: bon 20s ease infinite;
+        }
+
+        @keyframes bon {
+          0%{
+            transform: scale(1);
+          }
+          50%{
+            transform: scale(1.3);
+          }
+          100%{
+            transform: scale(1);
+          }
+        }
+
+        .my-container-my{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+          .animated-area{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .glavni-btn2{
+              margin-top: 50px;
+            }
+            .txt-60{
+              text-align: center;
+              text-transform: uppercase;
+              line-height: 135%;
+              width: 80%;
+              font-size: 28px;
+              @include media(650px){
+                width: 100%;
+                font-size: 20px;
+              }
+              color: $cff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.bottom-lin{
+  padding: 5px;
+  border-bottom: 2px solid $c16 !important;
+}
+
+.slider-sub-title {
+  color: #ffffff;
+}
+.swiper-slide-active .slider-title {
+  animation: fadeInDown 1.5s;
+}
+
+.swiper-slide-active .slider-buttton {
+  animation: fadeInUp 1.5s;
+}
+
+
+.bg-i{
+  &::before{
+    background: linear-gradient(180deg,rgba(44,93,169,0),#2b5ca8 95.6%) !important;
+  }
+}
+
+//counter
+
+.counterr {
+  width     : 100%;
+  background: #F7F8FA;
+  padding   : 40px 0;
+  .txt-48{
+    color: $c00;
+    font-weight: 600;
+  }
+
+  .counter-in {
+    width          : 100%;
+    display        : flex;
+    align-items    : flex-start;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    .card-c {
+      padding        : 30px;
+      background: #FFFFFF;
+      box-shadow: 0px 9px 18px rgba(0, 0, 0, 0.07);
+      border-radius: 12px;
+      width          : 23.5%;
+      display        : flex;
+      align-items    : center;
+      justify-content: start;
+      flex-direction : column;
+      border: 1px solid transparent;
+      transition: 0.3s;
+      margin-top: 24px;
+      min-height: 234px;
+      .img-bg{
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: $ce2;
+        border-radius: 50%;
+      }
+      img {
+        width     : 64px;
+        height    : 64px;
+        object-fit: contain;
+      }
+
+      .txt-24 {
+        margin-top: 12px;
+        text-align: center;
+        color: $c00;
+      }
+
+      .txt-16 {
+        text-align: center;
+        margin-top: 8px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+
+.line-left{
+  padding-left: 27px;
+  position: relative;
+  &::before{
+    position: absolute;
+    content: '';
+    width: 7px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $c16;
+    border-radius: 9px;
+  }
+}

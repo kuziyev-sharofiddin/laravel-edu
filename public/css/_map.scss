@@ -1,0 +1,118 @@
+.map-page {
+    padding: 40px 0;
+
+    .map-page-in {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .map {
+            width: 55% !important;
+            height: 500px;
+        }
+
+        .tabs__content {
+            width: 45%;
+            padding: 24px;
+            border-radius: 24px;
+            background: $cff;
+            .card-blog {
+                &.is-visible {
+                    display: flex;
+                }
+
+                width: 100%;
+                display: none;
+                flex-direction: column;
+
+                .txt-24 {
+                    color: $c00;
+                    font-weight: 600;
+                }
+
+                .card-blog-in {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 30px;
+
+                    .l-text {
+                        color: #B9BFC6;
+                        margin-right: 18px;
+                        font-weight: 400;
+                    }
+                    .r-text {
+                        color: #000;
+                        margin-right: 18px;
+                    }
+
+                }
+                .bottom-text{
+                    font-weight: 500;
+                    color: $c00;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*map kashqadaryo*/
+.map {
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.map {
+    position: relative;
+}
+
+.map-s {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    margin-top: 70px;
+    width: 100%;
+    fill: #B4B8C0;
+
+    path {
+        /*opacity: 0.4;*/
+        fill: #B4B8C0;
+        cursor: pointer;
+        transition: 0.3s;
+        stroke: #fff;
+        stroke-width: 1;
+    }
+
+    path:hover {
+        transition: 0.3s;
+        fill: $c16;
+        transform: translateY(-2px);
+    }
+}
+
+// #mirishkor{}
+// #kasbi{}
+// #muborak{}
+// #koson{}
+// #chiroqchi{}
+// #kitob{}
+// #shahrisabz{}
+// #yakkabaog{}
+// #qamashi{}
+// #qarshit{}
+// #nishon{}
+// #guzor{}
+// #dehqanabot{}
+
+
+
+.tabs__btn.is-active {
+    fill: $c16;
+}

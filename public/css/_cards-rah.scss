@@ -1,0 +1,91 @@
+.cards-rah{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    .card-r{
+        width: 49%;
+        background: #FFFFFF;
+        border: 1px solid #D9D9D9;
+        box-shadow: 0px 9px 18px rgba(0, 0, 0, 0.07);
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 30px;
+        &:hover{
+            box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.07);
+        }
+        img{
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+        }
+        .txt-20{
+            font-weight: 600;
+            margin-top: 24px;
+            color: #000;
+        }
+        .txt-14{
+            font-weight: 400;
+            margin-top: 5px;
+            color: #7B8A90;
+        }
+        .txt-16{
+            font-weight: 400;
+            margin-top: 12px;
+            color: #7B8A90;
+            span{
+                font-weight: 500;
+                color: #000;
+                margin-left: 5px;
+            }
+        }
+        .main-c{
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            border-top: 1px solid #D9D9D9;
+            .blog-in{
+                display: flex;
+                width: max-content;
+                padding: 10px 5px;
+                flex-direction: column;
+                .top{
+                    display: flex;
+                    align-items: flex-end;
+                    svg{
+                        width: 17px;
+                        height: 17px;
+                        margin-right: 8px;
+                    }
+                    .txt-14{
+                        color: #7B8A90;
+                        font-weight: 400;
+                    }
+                }
+                .bottom{
+                    color: #000000;
+                    margin-top: 8px;
+                    width: 100%;
+                }
+            }
+        }
+        .bottom-text{
+            margin: 20px auto 0;
+            a{
+                color: #0D53BC;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
+

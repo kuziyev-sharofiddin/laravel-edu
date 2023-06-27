@@ -1,0 +1,353 @@
+.modal-web{
+    width: 556px;
+    @include media(1100px){
+        width: 850px;
+    }
+    @include media(950px){
+        width: 700px;
+        padding: 24px;
+    }
+    @include media(800px){
+        width: 500px;
+        padding: 24px;
+        .back{
+            right: 18px;
+            top: 18px;
+        }
+    }
+    padding: 50px;
+    position: fixed;
+    background: #FFFFFF;
+    border-radius: 12px;
+    z-index: 12;
+    opacity: 0;
+    pointer-events: none;
+    top: 60%;
+    left: 50%;
+    transition: 0.3s;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &.active{
+        top: 50%;
+        z-index: 12;
+        opacity: 1;
+        pointer-events: all;
+    }
+    .back{
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #E5E9EE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg{
+            width: 24px;
+            height: 24px;
+        }
+        right: 30px;
+        top: 30px;
+        cursor: pointer;
+    }
+    .txt-24{
+        color:$c00;
+        font-weight: 600;
+        text-align: center;
+    }
+    .sucsess{
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        background: #E5E9EE;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        svg{
+            width: 60px;
+            height: 40px;
+        }
+        margin-bottom: 30px;
+    }
+    .glavni-btn{
+        width: 100%;
+        margin-top: 24px;
+    }
+    form{
+        margin-top: 6px;
+        width: 100%;
+        .input{
+            width: 100%;
+            margin-top: 12px;
+            background: #F1F6F9;
+            border: 1px solid transparent;
+            box-sizing: border-box;
+            border-radius: 12px;
+            padding: 11px 22px;
+            color: #000;
+            outline: none;
+            transition: 0.2s;
+            &::placeholder {
+                color: #CFCFCF;
+                font-weight: 400;
+                font-size: 14px;
+                text-transform: capitalize;
+              }
+            &:focus{
+                border: 1px solid $c16;
+            }
+        }
+        .blog-input{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            .input-mini{
+                width: 155px;
+            }
+            .txt-16{
+                margin-top: 12px;
+                cursor: pointer;
+                margin-left: 24px;
+                @include media(650px){
+                    margin-left: 0;
+                }
+                width: 100%;
+                color: $c16;
+                font-weight: 600;
+            }
+        }
+        .glavni-btn{
+            margin-top: 24px;
+            width: 100%;
+        }
+        .sign-r{
+            margin-top: 24px;
+            width: 100%;
+            text-align: center;
+            color: $c16;
+            font-weight: 600;
+        }
+        
+    }
+    .search-page{
+        width: 100%;
+        margin-top: 24px;
+        .top{
+            color: #7B8A90;
+            font-weight: 400;
+            strong{
+                color: #000;
+            }
+        }
+        .card-bg{
+            overflow-y: scroll;
+            margin-top: 5px;
+            height: 250px;
+
+            .card-m{
+                width: 95%;
+                background: #ffffff;
+                box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+                border-radius: 12px;
+                padding: 24px 24px;
+                margin-top: 12px;
+                cursor: pointer;
+                .sana{
+                    text-align: start;
+                    display: flex;
+                    align-items: center;
+                    .txt-16 {
+                        color: #BCBCBC;
+                        font-weight: 400;
+                    }
+                    svg{
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 10px;
+                    }
+                }
+                .bottom{
+                    margin-top: 6px;
+                    color: #000;
+                    width: 90%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+
+        }
+    }
+}
+
+.modal-active{
+    width: 556px;
+    .blog-btn{
+        display: flex;
+        padding-top: 16px;
+        margin-top: 16px;
+        align-items: center;
+        justify-content: end;
+        border-top: 1px solid $c16;
+        width: 100%;
+        .txt-16{
+            margin-left: 15px;
+        }
+        .glavni-btn{
+            i{
+                margin-left: 10px;
+            }
+            &:hover{
+                color: $c16;
+            }
+        }
+    }
+    @include media(1100px){
+        width: 850px;
+    }
+    @include media(950px){
+        width: 700px;
+        padding: 24px;
+    }
+    @include media(800px){
+        width: 500px;
+        padding: 18px;
+    }
+    @include media(650px){
+        width: 300px;
+        .blog-btn{
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            button{
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .txt-16{
+                margin-left: 0px;
+                margin-top: 10px;
+                width: 100%;
+                text-align: center !important;
+            }
+        }
+    }
+    padding: 50px;
+    position: fixed;
+    background: #FFFFFF;
+    border-radius: 12px;
+    z-index: 12;
+    opacity: 0;
+    pointer-events: none;
+    top: 30%;
+    left: 50%;
+    transition: 0.3s;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &.active{
+        top: 20%;
+        z-index: 12;
+        opacity: 1;
+        pointer-events: all;
+    }
+    .txt-20{
+        text-align: center;
+
+    }
+}
+
+.modal-search{
+    width: 1000px;
+    @include media(1100px){
+        width: 850px;
+    }
+    @include media(950px){
+        width: 700px;
+        padding: 24px;
+    }
+    @include media(800px){
+        width: 500px;
+        padding: 24px;
+        .back{
+            right: 18px;
+            top: 18px;
+        }
+    }
+    .back{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 30px;
+        top: 30px;
+        cursor: pointer;
+    }
+    .txt-24{
+        color:$c00;
+        font-weight: 600;
+        text-align: start;
+        width: 100%;
+    }
+    form{
+        margin-top: 15px;
+        width: 100%;
+        .glavni-btn{
+            margin-top: 24px;
+            width: max-content;
+        }
+    }
+    .search-page{
+        width: 100%;
+        margin-top: 24px;
+        .top{
+            color: #7B8A90;
+            font-weight: 400;
+            strong{
+                color: #000;
+            }
+        }
+        .card-bg{
+            overflow-y: scroll;
+            padding-left: 20px;
+            margin-top: 5px;
+            height: 250px;
+
+            .card-m{
+                width: 95%;
+                border: 1px solid #D9D9D9;
+                border-radius: 12px;
+                padding: 18px 12px;
+                margin-top: 12px;
+                cursor: pointer;
+                .sana{
+                    text-align: start;
+                    display: flex;
+                    align-items: center;
+                    .txt-16 {
+                        color: #BCBCBC;
+                        font-weight: 400;
+                    }
+                    svg{
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 10px;
+                    }
+                }
+                .bottom{
+                    margin-top: 6px;
+                    color: #000;
+                    width: 90%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+
+        }
+    }
+}
