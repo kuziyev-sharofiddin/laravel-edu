@@ -19,10 +19,10 @@
          <div class="col-sm-12">
             <div class="card-box">
                <div class="table-responsive">
-                  <table class="table table-bordered" id="example">
+                  <table>
                      <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                            <th>Name</th>
                            <th>Email</th>
                            <th>Phone</th>
@@ -41,7 +41,12 @@
                         <tr> --}}
 
                         <tr>
-                           <td>{{ $contact->id }}</td>
+                           <td>
+                            <div style="color:rgb(124,77,255); padding-left: 10px; float: left; font-size: 20px; cursor: pointer;" title="change display order">
+                                <i class="fa fa-ellipsis-v"></i>
+                                <i class="fa fa-ellipsis-v"></i>
+                                </div>
+                           </td>
                            <td>{{ $contact->name }}</td>
                            <td>{{ $contact->email }}</td>
                            <td>{{ $contact->phone }}</td>

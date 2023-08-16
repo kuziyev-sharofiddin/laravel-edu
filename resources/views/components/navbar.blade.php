@@ -88,36 +88,7 @@
                         <li><a class="dropdown-item txt-16" href="https://sporteduff.uz/">Farg'ona filiali</a></li>
                     </ul>
                 </li>
-                {{-- <li class="dropdown menu-in">
-                    <a class="txt-18 m-in dropdown-toggle menu-in-in" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <svg class="chervon" width="10" height="6" viewBox="0 0 10 6" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M9.5303 0.469668C9.8232 0.762558 9.8232 1.23744 9.5303 1.5303L5.5303 5.5303C5.2374 5.8232 4.7626 5.8232 4.4697 5.5303L0.469668 1.5303C0.176777 1.23744 0.176777 0.762558 0.469668 0.469668C0.762558 0.176777 1.23744 0.176777 1.53033 0.469668L5 3.9393L8.4697 0.469668C8.7626 0.176777 9.2374 0.176777 9.5303 0.469668Z"
-                                fill="white" />
-                        </svg>
-                        <span class="txt-16">
-                            Bo'limlar
-                        </span>
 
-                    </a>
-                    <ul class="dropdown-menu menu-in-menu">
-                        <li><a class="dropdown-item txt-16" href="#">Kadrlar bo'limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Matbuot kotibi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Malaka oshirish o'quv jarayonini tashkil etish bo'limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Qayta tayyorlash o'quv jarayonini tashkil etish bo'limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Axborot-kommunikatsiya texnologiyalari va masofadan o‘qitishni tashkil etish bo‘limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Ilmiy ishlar va ilmiy pedagog kadrlar bilan ishlash bo‘limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">O‘quv jarayonini metodik ta'minlash bo‘limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Ta'lim sifatini nazorat qilish va monitoring bo‘limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Xalqaro aloqalar bo'limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Axborot-resurs markazi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Moliya-reja va iqtisodiyot bo'limi</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Devonxona va arxiv</a></li>
-                        <li><a class="dropdown-item txt-16" href="#">Xo'jalik bo'limi</a></li>
-                    </ul>
-                </li> --}}
                 <li class="dropdown menu-in">
                     <a class="txt-18 m-in dropdown-toggle menu-in-in" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">

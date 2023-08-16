@@ -27,7 +27,7 @@
          <div class="col-sm-12">
             <div class="card-box">
                <div class="table-responsive">
-                  <table class="table table-bordered" id="example">
+                  <table>
                      <thead>
                         <tr>
                             <th>Id</th>
@@ -49,7 +49,9 @@
                         <tr> --}}
 
                         <tr>
-                           <td>{{ $edu->id }}</td>
+                           <td>
+                            {{ $edu->id }}
+                           </td>
                            <td>{{ $edu->fullname }}</td>
                            <td>{{ $edu->theme }}</td>
                            <td>{{ $edu->leader }}</td>

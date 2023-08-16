@@ -54,13 +54,15 @@
                            <td>{{ $about->title }}</td>
                            <td>{{ $about->description }}</td>
                            {{-- @canany(['update-post', 'delete-post' ], $post) --}}
-                           <td><div><a  class="btn btn-primary btn-sm" href="{{ route('abouts.edit', ['about'=>$about->id]) }}"><i class="fa fa-pencil"></i></a>
+                           <td>
+                            <div><a  class="btn btn-primary btn-sm" href="{{ route('abouts.edit', ['about'=>$about->id]) }}"><i class="fa fa-pencil"></i></a>
+                            {{-- <a class="btn btn-danger btn-sm" href="{{ route('abouts.destroy', ['about'=>$about->id]) }}" onsubmit="return confirm('Rostan ham o\'chirishni xohlaysizmi?')"><i class="fa fa-trash-o"></i></a> --}}
                             <form action="{{ route('abouts.destroy', ['about'=>$about->id]) }}" method="POST" onsubmit="return confirm('Rostan ham o\'chirishni xohlaysizmi?')">
                                 @csrf
                                 @method('DELETE')
                             <button class="btn btn-danger btn-sm" type="submit" style="text-align:left;">Delete</button>
                             </form>
-                            </div>
+                        </div>
                            </td>
                            {{-- @endcan --}}
                         </tr>

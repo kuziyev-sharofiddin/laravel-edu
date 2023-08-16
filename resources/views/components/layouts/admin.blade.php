@@ -3,6 +3,10 @@
 <html lang="en">
    <head>
       <title>{{ $title ?? 'Admin paneliga xush kelibsiz' }}</title>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
 
       <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -22,6 +26,7 @@
 
         <!-- Jquery filer css -->
         <link href="/plugins/jquery.filer/css/jquery.filer.css" rel="stylesheet" />
+
         <link href="/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
       <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
@@ -122,8 +127,12 @@
 var resizefunc = [];
 </script>
 <!-- jQuery  -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
 
 <script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/livewire-sortable.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/detect.js"></script>
 <script src="/assets/js/fastclick.js"></script>
