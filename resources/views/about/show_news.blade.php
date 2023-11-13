@@ -51,8 +51,8 @@
 
                         <tr>
                            <td>{{ $about->id }}</td>
-                           <td>{{ $about->title }}</td>
-                           <td>{{ $about->description }}</td>
+                           <td>{!! $about->title !!}</td>
+                           <td>{!! $about->description !!}</td>
                            {{-- @canany(['update-post', 'delete-post' ], $post) --}}
                            <td>
                             <div><a  class="btn btn-primary btn-sm" href="{{ route('abouts.edit', ['about'=>$about->id]) }}"><i class="fa fa-pencil"></i></a>

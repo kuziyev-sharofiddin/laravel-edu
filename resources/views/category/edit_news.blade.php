@@ -47,7 +47,7 @@
                                     @csrf
                                      <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Title</label>
-                                        <input type="text" class="form-control" value="{{ $category->name }}" id="posttitle" name="name" placeholder="Enter title" required>
+                                        <input type="text" id="editor" class="form-control" value="{!! $category->name !!}" id="posttitle" name="name" placeholder="Enter title" required>
                                      </div>
                                      <button type="submit" name="submit" class="btn btn-custom waves-effect waves-light btn-md">Save</button>
                                   </form>

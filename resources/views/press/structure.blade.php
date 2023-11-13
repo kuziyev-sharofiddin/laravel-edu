@@ -11,8 +11,8 @@
             <div class="main">
                 @foreach ($structures as $structure)
                 <div class="main-left ab">
-                    <h4 style="text-align:center">{{$structure->title}}</h4>
-                    <p class="section-text txt-18">{{$structure->description}}</p>
+                    <h4 style="text-align:center">{!! $structure->title !!}</h4>
+                    <p class="section-text txt-18">{!! $structure->description !!}</p>
                 </div>
                 @endforeach
                 <div class="main-right">

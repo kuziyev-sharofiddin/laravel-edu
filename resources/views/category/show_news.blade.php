@@ -50,7 +50,7 @@
 
                         <tr>
                            <td>{{ $category->id }}</td>
-                           <td>{{ $category->name }}</td>
+                           <td>{!! $category->name !!}</td>
                            {{-- @canany(['update-post', 'delete-post' ], $post) --}}
                            <td><div><a  class="btn btn-primary btn-sm" href="{{ route('categories.edit', ['category'=>$category->id]) }}"><i class="fa fa-pencil"></i></a>
                             <form action="{{ route('categories.destroy', ['category'=>$category->id]) }}" method="POST" onsubmit="return confirm('Rostan ham o\'chirishni xohlaysizmi?')">

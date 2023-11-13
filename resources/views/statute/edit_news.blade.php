@@ -47,13 +47,13 @@
                                     @csrf
                                      <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Title</label>
-                                        <input type="text" class="form-control" value="{{ $statute->title }}" id="posttitle" name="title" placeholder="Enter title" required>
+                                        <input type="text" id="editor" class="form-control" value="{{ $statute->title }}" id="posttitle" name="title" placeholder="Enter title" required>
                                      </div>
                                      <div class="row">
                                         <div class="col-sm-12">
                                            <div class="card-box">
                                               <h4 class="m-b-30 m-t-0 header-title"><b>Description</b></h4>
-                                              <textarea  name="description" required>{{$statute->description}}</textarea>
+                                              <textarea  name="description" id="editors" required>{!! $statute->description !!}</textarea>
                                            </div>
                                         </div>
                                      </div>

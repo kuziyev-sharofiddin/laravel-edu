@@ -7,7 +7,7 @@
 <div class="content">
    <div class="container">
       <div class="row">
-         <div class="col-xs-12">
+         <div class="col-12">
             <div class="page-title-box">
                <h4 class="page-title">Manage Contact </h4>
                <div class="clearfix"></div>

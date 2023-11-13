@@ -52,11 +52,11 @@
 
                         <tr>
                            <td>{{ $nukus->id }}</td>
-                           <td>{{ $nukus->title }}</td>
+                           <td>{!! $nukus->title !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$nukus->photo) }}" alt="">
                         </div></td>
-                           <td>{{ $nukus->description }}</td>
+                           <td>{!! $nukus->description !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$nukus->photo) }}" alt="">
                         </div></td>

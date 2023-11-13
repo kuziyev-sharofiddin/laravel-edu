@@ -245,7 +245,7 @@
                                         </span>
                                     </p>
                                 </div>
-                                <p class="txt-16">{{$announcement->title}}</p>
+                                <p class="txt-16">{!! $announcement->title !!}</p>
                             </div>
                         </a>
                         @endforeach

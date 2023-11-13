@@ -28,9 +28,9 @@
                                         {{ $samarkand->created_at }}
                                     </span>
                                 </p>
-                                <p class="txt-24">{{ $samarkand->title }}</p>
+                                <p class="txt-24">{!! $samarkand->title !!}</p>
                                 <p class="txt-16">
-                                    {{ $samarkand->description }}
+                                    {!! $samarkand->description !!}
                                 </p>
                             </div>
                         </a>

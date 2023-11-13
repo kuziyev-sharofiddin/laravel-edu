@@ -52,8 +52,8 @@
 
                         <tr>
                            <td>{{ $post->id }}</td>
-                           <td>{{ $post->title }}</td>
-                           <td>{{ $post->description }}</td>
+                           <td>{!! $post->title !!}</td>
+                           <td>{!! $post->description !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$post->photo) }}" alt="">
                         </div></td>

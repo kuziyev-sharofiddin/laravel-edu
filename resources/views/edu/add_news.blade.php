@@ -52,7 +52,7 @@
                                     <div class="col-sm-12">
                                        <div class="card-box">
                                           <h4 class="m-b-30 m-t-0 header-title"><b>Theme</b></h4>
-                                          <textarea  name="theme" required></textarea>
+                                          <textarea  name="theme" id="editor" required></textarea>
                                        </div>
                                     </div>
                                  </div>
@@ -68,7 +68,7 @@
                                     <div class="col-sm-12">
                                        <div class="card-box">
                                           <h4 class="m-b-30 m-t-0 header-title"><b>Address</b></h4>
-                                          <textarea  name="address" required></textarea>
+                                          <textarea  name="address"  required></textarea>
                                        </div>
                                     </div>
                                  </div>

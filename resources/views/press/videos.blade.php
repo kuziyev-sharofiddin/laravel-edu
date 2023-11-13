@@ -33,8 +33,8 @@
                                                 4                                            </span>
                                         </p> --}}
                                     </div>
-                                    <p class="txt-24">{{ $video->title }}</p>
-                                    <p class="txt-16">{{ $video->description }}</p>
+                                    <p class="txt-24">{!! $video->title !!}</p>
+                                    <p class="txt-16">{!! $video->description !!}</p>
                                 </div>
                             </a>
                         @endforeach

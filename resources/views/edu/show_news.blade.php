@@ -53,7 +53,7 @@
                             {{ $edu->id }}
                            </td>
                            <td>{{ $edu->fullname }}</td>
-                           <td>{{ $edu->theme }}</td>
+                           <td>{!! $edu->theme !!}</td>
                            <td>{{ $edu->leader }}</td>
                            <td>{{ $edu->address }}</td>
                            {{-- @canany(['update-post', 'delete-post' ], $post) --}}

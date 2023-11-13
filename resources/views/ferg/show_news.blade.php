@@ -52,8 +52,8 @@
 
                         <tr>
                            <td>{{ $ferghana->id }}</td>
-                           <td>{{ $ferghana->title }}</td>
-                           <td>{{ $ferghana->description }}</td>
+                           <td>{!! $ferghana->title !!}</td>
+                           <td>{!! $ferghana->description !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$ferghana->photo) }}" alt="">
                         </div></td>

@@ -47,7 +47,7 @@
                                     @csrf
                                      <div class="form-group col-md-6">
                                         <label for="exampleInputEmail1">Title</label>
-                                        <input type="text" class="form-control" value="{{ $video->title }}" id="posttitle" name="title" placeholder="Enter title" required>
+                                        <input type="text" class="form-control" value="{!! $video->title !!}" id="posttitle" name="title" placeholder="Enter title" required>
                                      </div>
                                      <div class="row">
                                         <div class="col-sm-12">
@@ -65,7 +65,7 @@
                                         <div class="col-sm-12">
                                            <div class="card-box">
                                               <h4 class="m-b-30 m-t-0 header-title"><b>Description</b></h4>
-                                              <textarea  name="description" >{{$video->description}}</textarea>
+                                              <textarea  name="description" id="editor" >{!! $video->description !!}</textarea>
                                            </div>
                                         </div>
                                      </div>

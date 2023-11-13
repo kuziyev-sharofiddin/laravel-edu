@@ -1,6 +1,6 @@
 <x-layouts.main>
     @slot('title')
-        {{ $video->title }}
+        {!! $video->title !!}
     @endslot
 <div class="main-page-w">
     <div class="my-container">
@@ -15,7 +15,7 @@
                             {{ $video->created_at }}
                             </span>
                     </p>
-                    <h1 class="txt-38">{{ $video->title }}</h1>
+                    <h1 class="txt-38">{!! $video->title !!}</h1>
                     <div class="video-sec ab" data-sr-id="2" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: all 0.3s ease 0s, opacity 1.5s cubic-bezier(0.5, 0, 0, 1) 0.3s, transform 1.5s cubic-bezier(0.5, 0, 0, 1) 0.3s;">
                         <img class="top" src="{{ asset('storage/'.$video->photo) }}" alt="">
                         <a data-fancybox="video-gallery" href="{{ $video->youtube }}" class="play">
@@ -28,7 +28,7 @@
                     <p class="section-text txt-18"></p>
                     <div id="image-news">
                         <p class="section-text txt-18">
-                            </p><p><span style="color:rgb(0, 0, 0)">{{ $video->description }}</span></p>
+                            </p><p><span style="color:rgb(0, 0, 0)">{!! $video->description !!}</span></p>
                         <p></p>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
                             <a href="{{ route('press.videodetails', ['video'=> $recent_video->id]) }}" class="s-card ab" data-sr-id="4" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: all 0.2s ease 0s, opacity 1.5s cubic-bezier(0.5, 0, 0, 1) 0.3s, transform 1.5s cubic-bezier(0.5, 0, 0, 1) 0.3s;">
                                 <img class="top" src="{{ asset('storage/'.$recent_video->photo) }}" alt="">
                                 <div class="right">
-                                    <p class="main-text txt-16">{{$recent_video->title}}</p>
-                                    <p class="txt-14 main-text-bot">{{$recent_video->description}}</p>
+                                    <p class="main-text txt-16">{!! $recent_video->title !!}</p>
+                                    <p class="txt-14 main-text-bot">{!! $recent_video->description !!}</p>
                                     <p class="sana ">
                                         <span class="txt-14">Videolavhalar |</span>
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

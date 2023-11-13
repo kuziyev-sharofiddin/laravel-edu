@@ -28,9 +28,9 @@
                                         {{ $fergana->created_at }}
                                     </span>
                                 </p>
-                                <p class="txt-24">{{ $fergana->title }}</p>
+                                <p class="txt-24">{!! $fergana->title !!}</p>
                                 <p class="txt-16">
-                                    {{ $fergana->description }}
+                                    {!! $fergana->description !!}
                                 </p>
                             </div>
                         </a>

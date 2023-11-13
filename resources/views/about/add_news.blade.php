@@ -44,15 +44,23 @@
 
                               <form action="{{ route('abouts.store')}}" method="POST" class="row">
                                 @csrf
-                                 <div class="form-group col-md-6">
+                                 <div class="form-group col-md-11">
                                     <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" class="form-control" id="posttitle" name="title" placeholder="Enter title" required>
+                                    <input type="text" class="form-control" id="editor" id="posttitle" name="title" placeholder="Enter title" required>
                                  </div>
+                                 {{-- <div class="row">
+                                    <div class="col-sm-12">
+                                       <div class="card-box">
+                                          <h4 class="m-b-30 m-t-0 header-title"><b>Title</b></h4>
+                                          <textarea  name="title" id="editor" required></textarea>
+                                       </div>
+                                    </div>
+                                 </div> --}}
                                  <div class="row">
                                     <div class="col-sm-12">
                                        <div class="card-box">
                                           <h4 class="m-b-30 m-t-0 header-title"><b>Description</b></h4>
-                                          <textarea  name="description" required></textarea>
+                                          <textarea  name="description" id="editors" required></textarea>
                                        </div>
                                     </div>
                                  </div>

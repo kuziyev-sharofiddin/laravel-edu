@@ -19,7 +19,7 @@
                                        {{$announcement->created_at}}                                </span>
                             </p>
                         </div>
-                        <h1 class="txt-38">{{$announcement->title}}</h1>
+                        <h1 class="txt-38">{!! $announcement->title !!}</h1>
                         <img src="{{ asset('storage/'.$announcement->photo) }}" alt="" class="img-sec">
                         <p class="section-text txt-18">
                                                 </p>
@@ -36,7 +36,7 @@
                                     <img class="top" src="{{ asset('storage/'.$announcement->photo) }}" alt="">
                                     <div class="right">
                                         <p class="main-text txt-16">
-                                            {{$announcement->title}}                                     </p>
+                                            {!! $announcement->title !!}                                     </p>
                                         <p class="txt-14 main-text-bot">
                                                                                 </p>
                                         <p class="sana ">

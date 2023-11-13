@@ -11,8 +11,8 @@
             <div class="main">
                 @foreach ($abouts as $about)
                 <div class="main-left ab">
-                    <h4 style="text-align:center">{{$about->title}}</h4>
-                    <p class="section-text txt-18">{{$about->description}}</p>
+                    <h4 style="text-align:center">{!! $about->title !!}</h4>
+                    <p class="section-text txt-18">{!! $about->description !!}</p>
                 </div>
                 @endforeach
                 <div class="main-right">

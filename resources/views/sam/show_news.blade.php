@@ -50,11 +50,11 @@
 
                         <tr>
                            <td>{{ $samarkand->id }}</td>
-                           <td>{{ $samarkand->title }}</td>
+                           <td>{!! $samarkand->title !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$samarkand->photo) }}" alt="">
                         </div></td>
-                           <td>{{ $samarkand->description }}</td>
+                           <td>{!! $samarkand->description !!}</td>
                            <td><div><a  class="btn btn-primary btn-sm" href="{{ route('samarkands.edit', ['samarkand'=>$samarkand->id]) }}"><i class="fa fa-pencil"></i></a>
                             <form action="{{ route('samarkands.destroy', ['samarkand'=>$samarkand->id]) }}" method="POST" onsubmit="return confirm('Rostan ham o\'chirishni xohlaysizmi?')">
                                 @csrf

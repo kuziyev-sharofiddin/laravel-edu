@@ -51,7 +51,7 @@
 
                         <tr>
                            <td>{{ $announcement->id }}</td>
-                           <td>{{ $announcement->title }}</td>
+                           <td>{!! $announcement->title !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$announcement->photo) }}" alt="">
                         </div></td>

@@ -33,7 +33,7 @@
                                                     23                                            </span>
                                             </p>
                                         </div>
-                                        <p class="txt-24">{{$announcement->title}} </p>
+                                        <p class="txt-24">{!! $announcement->title !!} </p>
                                                                             <p class="txt-16">
                                                                                 </p>
                                     </div>

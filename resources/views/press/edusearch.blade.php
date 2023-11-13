@@ -27,9 +27,9 @@
                                     <tr>
                                         <th class="fr">{{$edusearch->id}}</th>
                                         <td>{{$edusearch->fullname}}</td>
-                                        <td>{{$edusearch->theme}}</td>
+                                        <td>{!! $edusearch->theme !!}</td>
                                         <td>{{$edusearch->leader}}</td>
-                                        <td>{{$edusearch->address}}</td>
+                                        <td>{{$edusearch->address }}</td>
                                     </tr>
                                     @endforeach
 

@@ -1,12 +1,12 @@
 <x-layouts.main>
     @slot('title')
-    {{$category->name}}
+    {!! $category->name !!}
     @endslot
     <div class="main-page-w">
         <div class="my-container">
             <div class="main-in">
                 <h1 class="txt-48 line-left al" data-sr-id="5" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 2s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0s;">
-                    {{$category->name}}             </h1>
+                    {!! $category->name !!}             </h1>
                 <div class="main">
                     <div class="main-left">
                         <div class="cards-rahbaryat">
@@ -56,7 +56,7 @@
                             <div class="main-content ab2" data-sr-id="2" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 1.5s cubic-bezier(0.5, 0, 0, 1) 0.6s, transform 1.5s cubic-bezier(0.5, 0, 0, 1) 0.6s;">
                             @foreach($categories as $category)
                                 <a href="{{ route('press.information', ['category'=> $category->id]) }}" class="card-c  ">
-                                        <h1 class="txt-16 ">{{$category->name}}</h1>
+                                        <h1 class="txt-16 ">{!! $category->name !!}</h1>
                                 </a>
                             @endforeach
                             </div>

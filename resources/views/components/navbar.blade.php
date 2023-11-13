@@ -1,20 +1,185 @@
+<div class="bg-p"></div>
+<div class="bg-m"></div>
+<div class="bg-p"></div>
+<div class="bg-m"></div>
+<div class="menu-l">
+    <div class="top">
+        <div class="main-page-in">
+            <div class="left-in">
+                <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.96246 8.548C5.30948 13.4392 9.48597 17.328 14.6778 19.4351L14.6942 19.4417L15.6972 19.8696C16.9745 20.4142 18.4757 20.0274 19.2946 18.9427L20.968 16.7261C21.0702 16.5907 21.0438 16.4025 20.908 16.2975L17.9867 14.0418C17.8414 13.9297 17.6278 13.9559 17.5167 14.0993L16.3798 15.5677C16.1036 15.9244 15.6049 16.0483 15.1824 15.8653C11.3002 14.1837 8.18052 11.198 6.42361 7.48244C6.23239 7.07805 6.36187 6.60079 6.73447 6.33651L8.26873 5.24831C8.41866 5.14197 8.44596 4.93759 8.32877 4.79859L5.97161 2.0022C5.86206 1.87222 5.66542 1.84698 5.52396 1.94472L3.19535 3.55361C2.0545 4.34185 1.65274 5.79072 2.23507 7.01665L2.96169 8.54636C2.96195 8.54692 2.96221 8.54746 2.96246 8.548ZM13.9005 21.1673C8.25924 18.8754 3.72182 14.6489 1.17162 9.33292L1.17009 9.32978L0.441945 7.79685C-0.528605 5.75364 0.140997 3.33884 2.04243 2.02511L4.37103 0.416223C5.3613 -0.267983 6.73778 -0.0912667 7.50465 0.818507L9.8618 3.61492C10.682 4.58788 10.4909 6.01859 9.44146 6.76291L8.5623 7.38648C10.0475 10.1443 12.401 12.397 15.2826 13.8183L15.9342 12.9768C16.7119 11.9725 18.2067 11.7897 19.2234 12.5747L22.1448 14.8302C23.0956 15.5644 23.2801 16.8824 22.5646 17.8302L20.8911 20.0468C19.5263 21.8546 17.0243 22.4994 14.8956 21.5916L13.9005 21.1673Z" fill="#169FD8"></path>
+                </svg>
+            </div>
+            <div class="right-in">
+                <p class="txt-14">  Bog'lanish</p>
+                <p class="txt-14 fw5">+998 94 690-80-20</p>
+            </div>
+        </div>
+        <svg class="back" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.46436 15.5354L15.5354 8.46436" stroke="black" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M8.46436 8.46436L15.5354 15.5354" stroke="black" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+    </div>
+
+    <div class="menu-l-in">
+        <div class="accordion" id="accordionExample">
+                                                                <div class="accordion-item">
+                        <div class="accordion-header">
+                            <a href="/" class="txt-16 menu-in">Bosh  sahifa</a>
+                        </div>
+                    </div>
+
+                                                                <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed txt-16" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo42" aria-expanded="false" aria-controls="collapseTwo42">
+                                Matbuot xizmati                            </button>
+                        </h2>
+                        <div id="collapseTwo42" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                                                                                                                                <a href="{{ route('press.news') }}" class="txt-16">Institut yangiliklari</a>
+
+                                                                                                                                                <a href="{{ route('press.nukus-news') }}" class="txt-16">Nukus filiali yangiliklari</a>
+
+                                                                                                                                                <a href="{{ route('press.samarkand-news') }}" class="txt-16">Samarqand filiali yangiliklari</a>
+
+                                                                                                                                                <a href="{{ route('press.fergana-news') }}" class="txt-16">Farg‘ona filiali yangiliklari</a>
+
+                                                                                                                                                <a href="{{ route('press.images') }}" class="txt-16">Fotolavhalar</a>
+
+                                                                                                                                                <a href="{{ route('press.videos') }}" class="txt-16">Videolavhalar</a>
+
+                                                                                                                                                <a href="{{ route('press.announcement') }}" class="txt-16">E'lonlar</a>
+
+                                                            </div>
+                        </div>
+                    </div>
+
+                                                                <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button txt-16 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo46" aria-expanded="false" aria-controls="collapseTwo46">
+                                Faoliyat                            </button>
+                        </h2>
+                        <div id="collapseTwo46" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+
+                            <div class="accordion-body">
+                                                                                                                                                <a href="{{ route('main.institute') }}" class="txt-16">Institut haqida</a>
+
+                                                                                                                                                <a href="{{ route('press.statute') }}" class="txt-16">Institut nizomi</a>
+
+                                                                                                                                                <a href="{{ route('press.structure') }}" class="txt-16">Institut strukturasi</a>
+
+                                                                                                                                                <a href="{{ route('press.edusearch') }}" class="txt-16">Ilmiy tadqiqot ishlari</a>
+
+                                                                                                                                                <a href="/leadership/category_id=1" class="txt-16">Rahbariyat</a>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                                                                <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button txt-16" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo47" aria-expanded="true" aria-controls="collapseTwo47">
+                                Ta‘lim                            </button>
+                        </h2>
+                        <div id="collapseTwo47" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                            <div class="accordion-body">
+                                                                                                                                                <a href="http://mt.sportedu.uz/" class="txt-16">Masofaviy ta'lim</a>
+
+                                                                                                                                                <div class="accordion-item">
+                                            <h2 class="accordion-header" id="ddd87">
+                                                <button class="accordion-button txt-16" type="button" data-bs-toggle="collapse" data-bs-target="#fff87" aria-expanded="true" aria-controls="fff87">
+                                                    Elektron kutubxona                                                </button>
+                                            </h2>
+                                            <div id="fff87" class="accordion-collapse collapse show" aria-labelledby="ddd87" style="">
+                                                <div class="accordion-body">
+                                                                                                            <a href="http://lib.sportedu.uz/" class="txt-16">Institut kutubxonasi</a>
+                                                                                                            <a href="http://qr.natlib.uz/tizim_haqida" class="txt-16">Milliy kutubxona</a>
+                                                                                                            <a href="https://www.proquest.com/" class="txt-16">Xorijiy ilmiy-ta’limiy mа’lumotlar bazalari</a>
+                                                                                                            <a href="http://olympicinstitute.uni-sport.edu.ua/entsyklopediyiyi/#" class="txt-16">Ukraina Olimpiya o‘quv-ilmiy instituti</a>
+                                                                                                            <a href="https://biblioteka.cdu.edu.ua/" class="txt-16">Cherkassi milliy universiteti</a>
+                                                                                                            <a href="http://109.185.200.50/usefs/" class="txt-16">Moldava davlat jismoniy tarbiya universiteti</a>
+                                                                                                    </div>
+                                            </div>
+                                        </div>
+
+                                                                                                                                                <a href="http://195.158.30.179:1010/" class="txt-16">Onlayn test</a>
+
+                                                                                                                                                <a href="http://uzprogress.narod.ru/Ramzlar.htm" class="txt-16">Davlat ramzlari</a>
+
+                                                                                                                                                <a href="https://report.sportedu.uz/coach/index" class="txt-16">Trenerlar ma'lumoti</a>
+
+
+                                                                                                                                                <a href="https://suhbat.sportedu.uz" class="txt-16">Suhbat savollari</a>
+
+                                                                                                                                                <a href="https://test.sportedu.uz/" class="txt-16">Onlayn sinov test </a>
+
+                                                            </div>
+                        </div>
+                    </div>
+
+                                                                <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed txt-16" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo48" aria-expanded="false" aria-controls="collapseTwo48">
+                                Filiallar                            </button>
+                        </h2>
+                        <div id="collapseTwo48" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                                                                                                                                <a href="https://sportedun.uz/uz/" class="txt-16">Nukus filiali</a>
+
+                                                                                                                                                <a href="https://sportedu.uz/" class="txt-16">Samarqand filiali</a>
+
+                                                                                                                                                <a href="https://sporteduff.uz/" class="txt-16">Farg‘ona filiali</a>
+
+                                                            </div>
+                        </div>
+                    </div>
+
+                                                                <div class="accordion-item">
+                        <div class="accordion-header">
+                            <a href="https://sertifikat.sportedu.uz/" class="txt-16 menu-in">Sertifikat</a>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <a href="https://suhbat.sportedu.uz" class="txt-16 menu-in">Suhbat savollari</a>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <a href="http://195.158.30.179:1010/" class="txt-16 menu-in">Online test</a>
+                        </div>
+                    </div>
+
+                                                                <div class="accordion-item">
+                        <div class="accordion-header">
+                            <a href="{{ route('main.contact') }}" class="txt-16 menu-in">Biz bilan aloqa</a>
+                        </div>
+                    </div>
+
+                    </div>
+    </div>
+</div>
+
+
+
 <div class="menu-bar">
     <div class="my-container">
         <div class="bar-in">
             <ul class="menu">
-                <li class="dropdown menu-in">
-                    <a class="txt-18 m-in dropdown-toggle menu-in-in" href="{{ route('main.home') }}" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <span class="txt-16">
-                            Bosh sahifa
-                        </span>
-                    </a>
-                </li>
+            <li class="dropdown menu-in">
+                <a class="txt-18 m-in dropdown-toggle menu-in-in" href="/"
+                    aria-expanded="false">
+                    <span class="txt-16">
+                        Bosh sahifa
+                    </span>
+                </a>
+            </li>
                 <li class="dropdown menu-in">
                     <a class="txt-18 m-in dropdown-toggle menu-in-in" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-
-
                         <svg class="chervon" width="10" height="6" viewBox="0 0 10 6" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -116,7 +281,7 @@
                     </ul>
                 </li>
                 <li class="dropdown menu-in">
-                    <a class="txt-18 m-in dropdown-toggle menu-in-in" type="button" data-bs-toggle="dropdown"
+                    <a class="txt-18 m-in dropdown-toggle menu-in-in" href="https://sertifikat.sportedu.uz/"
                         aria-expanded="false">
                         <span class="txt-16">
                             Sertifikat
@@ -124,7 +289,7 @@
                     </a>
                 </li>
                 <li class="dropdown menu-in">
-                    <a class="txt-18 m-in dropdown-toggle menu-in-in" type="button" data-bs-toggle="dropdown"
+                    <a class="txt-18 m-in dropdown-toggle menu-in-in" href="https://suhbat.sportedu.uz"
                         aria-expanded="false">
                         <span class="txt-16">
                             Suhbat savollari
@@ -132,18 +297,13 @@
                     </a>
                 </li>
                 <li class="dropdown menu-in">
-                    <a class="txt-18 m-in dropdown-toggle menu-in-in" href="https://test.sportedu.uz/" type="button" data-bs-toggle="dropdown"
+                    <a class="txt-18 m-in dropdown-toggle menu-in-in" href="https://test.sportedu.uz/"
                         aria-expanded="false">
                         <span class="txt-16">
                             Online test
                         </span>
                     </a>
                 </li>
-            {{-- <li class="dropdown menu-in">
-                    <span class="txt-16">
-                        <a class="dropdown-item txt-16 dropdown-toggle menu-in-in" href="https://test.sportedu.uz/">Online test</a>
-                </span>
-            </li> --}}
             <li class="dropdown menu-in">
                 <span class="txt-16">
                     <a class="dropdown-item txt-16 dropdown-toggle menu-in-in" href="{{ route('main.contact') }}">Biz bilan aloqa</a>
@@ -164,3 +324,7 @@
         </div>
     </div>
 </div>
+
+
+
+

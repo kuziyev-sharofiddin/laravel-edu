@@ -53,7 +53,7 @@
                                         <div class="col-sm-12">
                                            <div class="card-box">
                                               <h4 class="m-b-30 m-t-0 header-title"><b>Theme</b></h4>
-                                              <textarea  name="theme" required>{{$edu->theme}}</textarea>
+                                              <textarea  name="theme" id="editor" required>{!! $edu->theme !!}</textarea>
                                            </div>
                                         </div>
                                      </div>
@@ -68,7 +68,7 @@
                                         <div class="col-sm-12">
                                            <div class="card-box">
                                               <h4 class="m-b-30 m-t-0 header-title"><b>Address</b></h4>
-                                              <textarea  name="leader" required>{{$edu->address}}</textarea>
+                                              <textarea  name="address" id="editor" required>{{ $edu->address }}</textarea>
                                            </div>
                                         </div>
                                      </div>

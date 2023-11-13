@@ -51,8 +51,8 @@
 
                         <tr>
                            <td>{{ $statute->id }}</td>
-                           <td>{{ $statute->title }}</td>
-                           <td>{{ $statute->description }}</td>
+                           <td>{!! $statute->title !!}</td>
+                           <td>{!! $statute->description !!}</td>
                            {{-- <td><a  class="btn btn-primary btn-sm" href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil"></i></a>
                               &nbsp;<a class="btn btn-danger btn-sm" href="manage-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=del" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="fa fa-trash-o"></i></a>
                            </td> --}}

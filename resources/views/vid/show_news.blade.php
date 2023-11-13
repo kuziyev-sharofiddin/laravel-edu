@@ -52,12 +52,12 @@
                         <tr> --}}
                         <tr>
                            <td>{{ $video->id }}</td>
-                           <td>{{ $video->title }}</td>
+                           <td>{!! $video->title !!}</td>
                            <td><div>
                             <img style="width: 150px; height:150px;" class="top" src="{{ asset('storage/'.$video->photo) }}" alt="">
                         </div></td>
                            <td>{{ $video->youtube }}</td>
-                           <td>{{ $video->description }}</td>
+                           <td>{!! $video->description !!}</td>
                            {{-- <td><a  class="btn btn-primary btn-sm" href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><i class="fa fa-pencil"></i></a>
                               &nbsp;<a class="btn btn-danger btn-sm" href="manage-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=del" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="fa fa-trash-o"></i></a>
                            </td> --}}

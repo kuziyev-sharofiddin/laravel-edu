@@ -11,8 +11,8 @@
             <div class="main">
                 @foreach ($statutes as $statute)
                 <div class="main-left ab">
-                    <h4 style="text-align:center">{{$statute->title}}</h4>
-                    <p class="section-text txt-18">{{$statute->description}}</p>
+                    <h4 style="text-align:center">{!! $statute->title !!}</h4>
+                    <p class="section-text txt-18">{!! $statute->description !!}</p>
                 </div>
                 @endforeach
                 <div class="main-right">

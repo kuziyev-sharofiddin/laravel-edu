@@ -24,12 +24,12 @@
                                        21                                </span>
                             </p> --}}
                         </div>
-                        <h1 class="txt-38">{{ $samarkand->title }}</h1>
+                        <h1 class="txt-38">{!! $samarkand->title !!}</h1>
                         <img src="{{ asset('storage/'.$samarkand->photo) }}" alt="" class="img-sec">
                         <p class="section-text txt-18"></p>
                         <div id="image-news">
     <br>
-    <p>{{ $samarkand->description }}&nbsp;</p>
+    <p>{!! $samarkand->description !!}&nbsp;</p>
                         </div>
                     </div>
                     <div class="main-right">
@@ -41,7 +41,7 @@
                                     <div class="right">
 
                                         <p class="main-text txt-16">
-                                            {{$recent_samarkand->title}}            </p>
+                                            {!! $recent_samarkand->title !!}            </p>
                                         {{-- <p class="txt-14 main-text-bot">
                                                                                 </p> --}}
                                         <p class="sana ">

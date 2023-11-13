@@ -28,9 +28,9 @@
                                         {{ $nukus->created_at }}
                                     </span>
                                 </p>
-                                <p class="txt-24">{{ $nukus->title }}</p>
+                                <p class="txt-24">{!! $nukus->title !!}</p>
                                 <p class="txt-16">
-                                    {{ $nukus->description }}
+                                    {!! $nukus->description !!}
                                 </p>
                             </div>
                         </a>

@@ -28,9 +28,9 @@
                                         {{ $post->created_at }}
                                     </span>
                                 </p>
-                                <p class="txt-24">{{ $post->title }}</p>
+                                <p class="txt-24">{!! $post->title !!}</p>
                                 <p class="txt-16">
-                                    {{ $post->description }}
+                                    {!! $post->description !!}
                                 </p>
                             </div>
                         </a>
