@@ -14,6 +14,8 @@ class EduController extends Controller
         ]);
     }
 
+    
+
 
     public function create()
     {
