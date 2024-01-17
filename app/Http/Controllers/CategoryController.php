@@ -2,56 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Http\Requests\CategoryRequest;
+use App\Service\CategoryService;
 
 class CategoryController extends Controller
 {
+    public function __construct(protected CategoryService $service)
+    {
+
+    }
     public function index()
     {
+        $categories = $this->service->getByPaginate(10);
         return view('category.show_news')->with([
-            'categories' => Category::all(),
+            'categories' =>  $categories,
         ]);
     }
-
-
     public function create()
     {
         return view('category.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $category  = Category::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'name' => $request->name,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('categories.index');
     }
-
-    public function edit(Category $category)
+    public function edit($category)
     {
+        $category = $this->service->getById($category);
         return view('category.edit_news')->with(['category'=>$category]);
     }
-
-
-    public function update(Request $request, Category $category)
+    public function update($category,CategoryRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-        $category->update([
-            'name' => $request->name,
-        ]);
-        return redirect()->route('categories.index', ['category' => $category->id]);
+        $category = $this->service->update($category, $request->validated());
+        return redirect()->route('categories.index', ['category' => $category]);
     }
-
-
-    public function destroy(Category $category)
+    public function destroy($category)
     {
-
-        $category->delete();
+        $this->service->destroy($category);
         return redirect()->route('categories.index');
     }
 }

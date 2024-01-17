@@ -2,79 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Announcement;
+use App\Http\Requests\AnnouncementRequest;
+use App\Http\Requests\AnnouncementUpdateRequest;
+use App\Service\AnnouncementService;
 
 class AnnouncementController extends Controller
 {
+    public function __construct(protected AnnouncementService $service)
+    {
 
+    }
     public function index()
     {
-        return view('announ.show_news')->with([
-            'announcements' => Announcement::all(),
-        ]);
+        $announcements = $this->service->getByPaginate(10);
+        return view('announ.show_news')->with(['announcements' => $announcements]);
     }
-
-
     public function create()
     {
         return view('announ.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(AnnouncementRequest $request)
     {
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-
-        $announcement = Announcement::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'photo' => $path ?? null ,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('announcements.index');
     }
-
-
-    public function edit(Announcement $announcement)
+    public function edit($announcement)
     {
+        $announcement = $this->service->getById($announcement);
         return view('announ.edit_news')->with(['announcement'=>$announcement]);
     }
-
-    public function update(Request $request, Announcement $announcement)
+    public function update($announcement, AnnouncementUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($announcement->photo)){
-                Storage::delete($announcement->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $announcement->update([
-            'title' => $request->title,
-            'photo' => $path ?? $announcement->photo,
-        ]);
-        return redirect()->route('announcements.index', ['announcement' => $announcement->id]);
+        $announcement = $this->service->update($announcement,$request->validated());
+        return redirect()->route('announcements.index', ['announcement' => $announcement]);
     }
-
-
-    public function destroy(Announcement $announcement)
+    public function destroy($announcement)
     {
-        if (isset($announcement->photo)){
-            Storage::delete($announcement->photo);
-        }
-        $announcement->delete();
+        $this->service->destroy($announcement);
         return redirect()->route('announcements.index');
     }
 }

@@ -55,6 +55,7 @@ Route::get('/about-structure', [PressController::class, 'structure'])->name('pre
 Route::get('/about-edusearch', [PressController::class, 'edusearch'])->name('press.edusearch');
 
 
+
 Route::resources([
     'ferghanas' => FerghanaController::class,
     'nukuses' => NukusController::class,

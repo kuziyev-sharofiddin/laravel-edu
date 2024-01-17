@@ -2,36 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
+use App\Service\ContactService;
 use Illuminate\Http\Request;
-use App\Models\Contact;
 
 class ContactController extends Controller
 {
+    public function __construct(protected ContactService $service)
+    {
+
+    }
     public function index()
     {
-        return view('contact.show_news')->with([
-            'contacts' => Contact::all(),
-        ]);
+        $contacts = $this->service->getByPaginate(10);
+        return view('contact.show_news')->with(['contacts' => $contacts]);
     }
-
-
-
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $contact  = Contact::create([
-            // 'user_id'=>aut h()->user()->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'comment' => $request->comment,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('main.home');
     }
-
-    public function destroy(Contact $contact)
+    public function destroy($contact)
     {
-        $contact->delete();
+        $this->service->destroy($contact);
         return redirect()->route('contacts.index');
     }
 }

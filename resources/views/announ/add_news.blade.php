@@ -46,7 +46,7 @@
                                 @csrf
                                  <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" id="editors" class="form-control" id="posttitle" name="title" placeholder="Enter title" required>
+                                    <input type="text" class="form-control" id="posttitle" name="title" placeholder="Enter title" required>
                                  </div>
                                  <div class="row">
                                     <div class="col-sm-12">

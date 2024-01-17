@@ -2,66 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Edu;
+use App\Http\Requests\EduRequest;
+use App\Service\EduService;
 
 class EduController extends Controller
 {
+    public function __construct(protected EduService $service)
+    {
+
+    }
     public function index()
     {
-        return view('edu.show_news')->with([
-            'edus' => Edu::all(),
-        ]);
+        $edus = $this->service->getByPaginate(10);
+        return view('edu.show_news')->with(['edus' => $edus]);
     }
-
-    
-
-
     public function create()
     {
         return view('edu.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(EduRequest $request)
     {
-        $edu  = Edu::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'fullname' => $request->fullname,
-            'theme' => $request->theme,
-            'leader' => $request->leader,
-            'address' => $request->address,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('edus.index');
     }
-
-    public function edit(Edu $edu)
+    public function edit($edu)
     {
+        $edu = $this->service->getById($edu);
         return view('edu.edit_news')->with(['edu'=>$edu]);
     }
-
-
-    public function update(Request $request, Edu $edu)
+    public function update($edu, EduRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-        $edu->update([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'fullname' => $request->fullname,
-            'theme' => $request->theme,
-            'leader' => $request->leader,
-            'address' => $request->address,
-        ]);
-        return redirect()->route('edus.index', ['edu' => $edu->id]);
+        $edu = $this->service->update($edu,$request->validated());
+        return redirect()->route('edus.index', ['edu' => $edu]);
     }
-
-
-    public function destroy(Edu $edu)
+    public function destroy($edu)
     {
-
-        $edu->delete();
+        $this->service->destroy($edu);
         return redirect()->route('edus.index');
     }
 }

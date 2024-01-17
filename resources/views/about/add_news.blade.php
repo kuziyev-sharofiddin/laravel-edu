@@ -46,7 +46,7 @@
                                 @csrf
                                  <div class="form-group col-md-11">
                                     <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" class="form-control" id="editor" id="posttitle" name="title" placeholder="Enter title" required>
+                                    <input type="text" class="form-control"  id="posttitle" name="title" placeholder="Enter title" required>
                                  </div>
                                  {{-- <div class="row">
                                     <div class="col-sm-12">
@@ -60,11 +60,11 @@
                                     <div class="col-sm-12">
                                        <div class="card-box">
                                           <h4 class="m-b-30 m-t-0 header-title"><b>Description</b></h4>
-                                          <textarea  name="description" id="editors" required></textarea>
+                                          <textarea  name="description"  required></textarea>
                                        </div>
                                     </div>
                                  </div>
-                                 <button type="submit" name="submit" class="btn btn-custom waves-effect waves-light btn-md">Save</button>
+                                 <button type="submit" class="btn btn-custom waves-effect waves-light btn-md">Save</button>
                               </form>
                </div>
             </div>
