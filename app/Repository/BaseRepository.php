@@ -34,7 +34,6 @@ class BaseRepository implements BaseInterface
         return $this->model->category->find($id);
     }
 
-
     public function paginate($limit)
     {
         return $this->model->paginate($limit);
@@ -42,5 +41,9 @@ class BaseRepository implements BaseInterface
     public function delete($id)
     {
        return $this->getById($id)->delete();
+    }
+
+    public function getLatestById($id){
+        return $this->model->latest()->get()->except($this->getById($id))->take(6);
     }
 }

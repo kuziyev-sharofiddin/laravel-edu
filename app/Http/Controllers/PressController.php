@@ -1,132 +1,141 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Post;
-use App\Models\Nukus;
-use App\Models\Ferghana;
-use App\Models\Samarkand;
-use App\Models\Video;
-use App\Models\Statute;
-use App\Models\Image;
-use App\Models\Category;
-use App\Models\Structure;
-use App\Models\Edu;
-use App\Models\Announcement;
+use App\Service\AnnouncementService;
+use App\Service\AboutService;
+use App\Service\CategoryService;
+use App\Service\EduService;
+use App\Service\FerghanaService;
+use App\Service\ImageService;
+use App\Service\NukusService;
+use App\Service\PostService;
+use App\Service\SamarkandService;
+use App\Service\StatuteService;
+use App\Service\StructureService;
+use App\Service\VideoService;
 
 class PressController extends Controller
 {
+    public function __construct(
+        protected PostService $postService,
+        protected StatuteService $statuteService,
+        protected VideoService $videoService,
+        protected ImageService $imageService,
+        protected AboutService $aboutService,
+        protected CategoryService $categoryService,
+        protected EduService $eduService,
+        protected NukusService $nukusService,
+        protected StructureService $structureService,
+        protected FerghanaService $ferghanaService,
+        protected SamarkandService $samarkandService,
+        protected AnnouncementService $announcementService,
+        )
+        {
+
+        }
     public function news(){
-        return view('press.news')->with([
-            'posts' => Post::all(),
-        ]);
+        $posts = $this->postService->getByPaginate(10);
+        return view('press.news')->with(['posts' => $posts]);
     }
 
     public function nukus(){
-        return view('press.nukus-news')->with([
-            'nukuses' => Nukus::all(),
-        ]);
+        $nukuses = $this->nukusService->getByPaginate(10);
+        return view('press.nukus-news')->with(['nukuses' => $nukuses]);
     }
 
     public function fergana(){
-        return view('press.fergana-news')->with([
-            'ferganes' => Ferghana::all(),
-        ]);
+        $ferganes = $this->ferghanaService->getByPaginate(10);
+        return view('press.fergana-news')->with(['ferganes' => $ferganes]);
     }
 
     public function samarkand(){
-        return view('press.samarkand-news')->with([
-            'samarkands' => Samarkand::all(),
-        ]);
+        $samarkands = $this->samarkandService->getByPaginate(10);
+        return view('press.samarkand-news')->with(['samarkands' => $samarkands]);
     }
 
     public function videos(){
-        return view('press.videos')->with([
-            'videos' => Video::all(),
-        ]);
+        $videos = $this->videoService->getByPaginate(10);
+        return view('press.videos')->with(['videos' => $videos]);
     }
 
-    public function videodetails(Video $video){
+    public function videodetails($video){
+        $video = $this->videoService->getById($video);
+        $recent_videos = $this->videoService->getLatestById($video);
         return view('press.video-details')->with([
             'video' => $video,
-            'recent_videos' => Video::latest()->get()->except($video->id)->take(2),
+            'recent_videos' => $recent_videos
     ]);
     }
 
-    public function news_details(Post $post){
+    public function news_details($post){
+        $post = $this->postService->getById($post);
+        $recent_posts = $this->postService->getLatestById($post);
         return view('press.news-details')->with([
             'post' => $post,
-            'recent_posts' => Post::latest()->get()->except($post->id)->take(6),
+            'recent_posts' => $recent_posts
     ]);
     }
-
-    public function fergana_details(Ferghana $fergana){
+    public function fergana_details($fergana){
+        $fergana = $this->ferghanaService->getById($fergana);
+        $recent_ferganes = $this->ferghanaService->getLatestById($fergana);
         return view('press.fergana-news-details')->with([
             'fergana' => $fergana,
-            'recent_ferganes' => Ferghana::latest()->get()->except($fergana->id)->take(6),
+            'recent_ferganes' => $recent_ferganes
     ]);
     }
-
-    public function samarkand_details(Samarkand $samarkand){
+    public function samarkand_details($samarkand){
+        $samarkand = $this->samarkandService->getById($samarkand);
+        $recent_samarkands = $this->samarkandService->getLatestById($samarkand);
         return view('press.samar-news-details')->with([
             'samarkand' => $samarkand,
-            'recent_samarkands' => Samarkand::latest()->get()->except($samarkand->id)->take(6),
+            'recent_samarkands' => $recent_samarkands
     ]);
     }
-
-    public function nukus_details(Nukus $nukus){
+    public function nukus_details($nukus){
+        $nukus = $this->nukusService->getById($nukus);
+        $recent_nukuses = $this->nukusService->getLatestById($nukus);
         return view('press.nukus-news-details')->with([
             'nukus' => $nukus,
-            'recent_nukuses' => Nukus::latest()->get()->except($nukus->id)->take(6),
+            'recent_nukuses' => $recent_nukuses
     ]);
     }
-
     public function fotos(){
+        $fotos = $this->imageService->getByPaginate(10);
         return view('press.fotos')->with([
-            'fotos' => Image::all(),
+            'fotos' => $fotos,
     ]);
     }
-
-    public function information(Category $category){
-
+    public function information($category){
+        $category = $this->categoryService->getById($category);
+        $categories = $this->categoryService->getByPaginate(10);
         return view('press.information')->with([
             'category' => $category,
-            'categories' => Category::all()
+            'categories' => $categories
     ]);
     }
-
-    public function announcement_details(Announcement $announcement){
-
+    public function announcement_details($announcement){
+        $announcement = $this->announcementService->getById($announcement);
+        $recent_announcement = $this->announcementService->getLatestById($announcement);
         return view('press.announcement_details')->with([
             'announcement' => $announcement,
-            'recent_announcement' => Announcement::latest()->get()->except($announcement->id)->take(3),
+            'recent_announcement' => $recent_announcement
     ]);
     }
-
     public function announcement(){
-        return view('press.announce')->with([
-            'announcements' => Announcement::all(),
-        ]);
+        $announcements = $this->announcementService->getByPaginate(10);
+        return view('press.announce')->with(['announcements' => $announcements]);
     }
-
     public function statute(){
-        return view('press.statute')->with([
-            'statutes' => Statute::all(),
-        ]);
+        $statutes = $this->statuteService->getByPaginate(10);
+        return view('press.statute')->with(['statutes' => $statutes]);
     }
-
     public function structure(){
-        return view('press.structure')->with([
-            'structures' => Structure::all(),
-        ]);
+        $structures = $this->structureService->getByPaginate(10);
+        return view('press.structure')->with(['structures' => $structures]);
     }
-
     public function edusearch(){
-        return view('press.edusearch')->with([
-            'edusearchs' => Edu::all(),
-        ]);
+        $edusearchs = $this->eduService->getByPaginate(10);
+        return view('press.edusearch')->with(['edusearchs' => $edusearchs]);
     }
-
 }
 

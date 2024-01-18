@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-
 use Illuminate\Http\Request;
 
 class AuthController extends Controller

@@ -6,11 +6,12 @@ use App\Http\Requests\LeaderRequest;
 use App\Http\Requests\LeaderUpdateRequest;
 use App\Models\Leader;
 use App\Models\Category;
+use App\Service\CategoryService;
 use App\Service\LeaderService;
 
 class LeaderController extends Controller
 {
-    public function __construct(protected LeaderService $service)
+    public function __construct(protected LeaderService $service, protected CategoryService $categoryService)
     {
 
     }
@@ -21,8 +22,9 @@ class LeaderController extends Controller
     }
     public function create()
     {
+        $categories = $this->service->getByPaginate(10);
         return view('leader.add_news')->with([
-            'categories' => Category::all(),
+            'categories' => $categories
         ]);
     }
     public function store(LeaderRequest $request)
@@ -30,12 +32,14 @@ class LeaderController extends Controller
         $this->service->create($request->all());
         return redirect()->route('leaders.index');
     }
-    public function edit(Leader $leader)
+    public function edit($leader)
     {
         $leader = $this->service->getById($leader);
+        $categories = $this->service->getByPaginate(10);
         return view('leader.edit_news')->with([
         'leader'=>$leader,
-        'categories' => Category::all()]);
+        'categories' => $categories
+    ]);
     }
     public function update($leader,LeaderUpdateRequest $request)
     {

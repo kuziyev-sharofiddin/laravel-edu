@@ -51,5 +51,8 @@ class NukusService
             Storage::delete($id->photo);
         }
         return $this->repository->delete($id);
-}
+    }
+    public function getLatestById($id){
+        return $this->repository->getLatestById($id);
+    }
 }
