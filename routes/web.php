@@ -2,23 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PressController;
-use App\Http\Controllers\FerghanaController;
-use App\Http\Controllers\NukusController;
-use App\Http\Controllers\SamarkandController;
-use App\Http\Controllers\VideoController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\StatuteController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\StructureController;
-use App\Http\Controllers\EduController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LeaderController;
-use App\Http\Controllers\ContactController;
 
 
 
@@ -27,7 +13,6 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('main.contact')
 Route::get('/about-institute', [HomeController::class, 'about'])->name('main.institute');
 Route::get('admin', [AuthController::class, 'login'])->name('admin.login');
 Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
-Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('dashboard/add/posts', [PostController::class, 'news'])->name('inst.add_news');
 Route::post('dashboard/add/posts', [PostController::class, 'store'])->name('inst.store');
 Route::get('dashboard/show/posts', [PostController::class, 'show'])->name('inst.show_news');
@@ -54,22 +39,4 @@ Route::get('/about-statute', [PressController::class, 'statute'])->name('press.s
 Route::get('/about-structure', [PressController::class, 'structure'])->name('press.structure');
 Route::get('/about-edusearch', [PressController::class, 'edusearch'])->name('press.edusearch');
 
-
-
-Route::resources([
-    'ferghanas' => FerghanaController::class,
-    'nukuses' => NukusController::class,
-    'samarkands' => SamarkandController::class,
-    'videos' => VideoController::class,
-    'images' => ImageController::class,
-    'announcements' => AnnouncementController::class,
-    'abouts' => AboutController::class,
-    'statutes' => StatuteController::class,
-    'structures' => StructureController::class,
-    'edus' => EduController::class,
-    'categories' => CategoryController::class,
-    'leaders' => LeaderController::class,
-    'contacts' => ContactController::class,
-
-]);
 
