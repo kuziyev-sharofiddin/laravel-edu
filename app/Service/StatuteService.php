@@ -9,7 +9,6 @@ class StatuteService
     {
         $this->repository = $repository;
     }
-
     public function getByPaginate($limit)
     {
         return $this->repository->paginate($limit);
@@ -17,7 +16,8 @@ class StatuteService
 
     public function create(array $data){
         $result = [
-            ""=> $data[""],
+            "title"=> $data["title"],
+            "description"=> $data["description"],
         ];
         $this->repository->create($result);
     }
@@ -26,14 +26,13 @@ class StatuteService
     {
        return $this->repository->getById($id);
     }
-    public function update(array $data, $id){
-
+    public function update($id,array $data){
         $result = [
-            ""=> $data[''],
+            "title"=> $data["title"],
+            "description"=> $data["description"],
         ];
-        return $this->repository->update($result, $id);
+        return $this->repository->update($id,$result);
     }
-
     public function destroy($id){
         return $this->repository->delete($id);
 }

@@ -2,90 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\LeaderRequest;
+use App\Http\Requests\LeaderUpdateRequest;
 use App\Models\Leader;
 use App\Models\Category;
+use App\Service\LeaderService;
 
 class LeaderController extends Controller
 {
+    public function __construct(protected LeaderService $service)
+    {
+
+    }
     public function index()
     {
-        return view('leader.show_news')->with([
-            'leaders' => Leader::all(),
-        ]);
+        $leaders = $this->service->getByPaginate(10);
+        return view('leader.show_news')->with(['leaders' => $leaders]);
     }
-
-
     public function create()
     {
         return view('leader.add_news')->with([
             'categories' => Category::all(),
         ]);
     }
-
-
-    public function store(Request $request)
+    public function store(LeaderRequest $request)
     {
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $leader  = Leader::create([
-            // 'user_id'=>aut h()->user()->id,
-            "category_id"=>$request->category_id,
-            'position' => $request->position,
-            'fullname' => $request->fullname,
-            'phone' => $request->phone,
-            'photo' => $path ?? null ,
-            'day' => $request->day,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('leaders.index');
     }
-
     public function edit(Leader $leader)
     {
+        $leader = $this->service->getById($leader);
         return view('leader.edit_news')->with([
         'leader'=>$leader,
         'categories' => Category::all()]);
     }
-
-
-    public function update(Request $request, Leader $leader)
+    public function update($leader,LeaderUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($leader->photo)){
-                Storage::delete($leader->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $leader->update([
-            // 'user_id'=>aut h()->user()->id,
-            "category_id"=>$request->category_id,
-            'position' => $request->position,
-            'fullname' => $request->fullname,
-            'phone' => $request->phone,
-            'photo' => $path ?? $leader->photo,
-            'day' => $request->day,
-        ]);
-        return redirect()->route('leaders.index', ['leader' => $leader->id]);
+        $leader = $this->service->update($leader,$request->validated());
+        return redirect()->route('leaders.index', ['leader' => $leader]);
     }
 
 
-    public function destroy(Leader $leader)
+    public function destroy($leader)
     {
-        if (isset($leader->photo)){
-            Storage::delete($leader->photo);
-        }
-
-        $leader->delete();
+        $this->service->destroy($leader);
         return redirect()->route('leaders.index');
     }
 }

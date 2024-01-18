@@ -2,58 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Structure;
+use App\Http\Requests\StructureRequest;
+use App\Service\StructureService;
 
 class StructureController extends Controller
 {
+    public function __construct(protected StructureService $service)
+    {
+
+    }
     public function index()
     {
-        return view('structure.show_news')->with([
-            'structures' => Structure::all(),
-        ]);
+        $structures = $this->service->getByPaginate(10);
+        return view('structure.show_news')->with(['structures' => $structures]);
     }
-
-
     public function create()
     {
         return view('structure.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(StructureRequest $request)
     {
-        $structure  = Structure::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('structures.index');
     }
-
-    public function edit(Structure $structure)
+    public function edit($structure)
     {
+        $structure = $this->service->getById($structure);
         return view('structure.edit_news')->with(['structure'=>$structure]);
     }
-
-
-    public function update(Request $request, Structure $structure)
+    public function update($structure,StructureRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-        $structure->update([
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
-        return redirect()->route('structures.index', ['structure' => $structure->id]);
+        $structure = $this->service->update($structure,$request->validated());
+        return redirect()->route('structures.index', ['structure' => $structure]);
     }
-
-
-    public function destroy(Structure $structure)
+    public function destroy($structure)
     {
-
-        $structure->delete();
+        $this->service->destroy($structure);
         return redirect()->route('structures.index');
     }
 }

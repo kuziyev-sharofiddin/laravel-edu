@@ -29,6 +29,11 @@ class BaseRepository implements BaseInterface
         return $this->model->find($id);
     }
 
+    public function getByCategoryId($id)
+    {
+        return $this->model->category->find($id);
+    }
+
 
     public function paginate($limit)
     {

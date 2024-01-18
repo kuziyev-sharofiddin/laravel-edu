@@ -2,82 +2,43 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Ferghana;
+use App\Http\Requests\FerghanaRequest;
+use App\Http\Requests\FerghanaUpdateRequest;
+use App\Service\FerghanaService;
 
 class FerghanaController extends Controller
 {
+    public function __construct(protected FerghanaService $service)
+    {
 
+    }
     public function index()
     {
-        return view('ferg.show_news')->with([
-            'ferghanas' => Ferghana::all()
-        ]);
+        $ferghanas = $this->service->getByPaginate(10);
+        return view('ferg.show_news')->with(['ferghanas' => $ferghanas]);
     }
-
-
     public function create()
     {
         return view('ferg.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(FerghanaRequest $request)
     {
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-
-        $ferghana = Ferghana::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $path ?? null ,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('ferghanas.index');
     }
-
-    public function edit(Ferghana $ferghana)
+    public function edit($ferghana)
     {
+        $ferghana = $this->service->getById($ferghana);
         return view('ferg.edit_news')->with(['ferghana'=>$ferghana]);
     }
-
-
-    public function update(Request $request, Ferghana $ferghana)
+    public function update($ferghana,FerghanaUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($ferghana->photo)){
-                Storage::delete($ferghana->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $ferghana->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $path ?? $ferghana->photo,
-        ]);
-        return redirect()->route('ferghanas.index', ['ferghana' => $ferghana->id]);
+        $ferghana = $this->service->update($ferghana,$request->validated());
+        return redirect()->route('ferghanas.index', ['ferghana' => $ferghana]);
     }
-
-
-    public function destroy(Ferghana $ferghana)
+    public function destroy($ferghana)
     {
-        if (isset($ferghana->photo)){
-            Storage::delete($ferghana->photo);
-        }
-        $ferghana->delete();
+        $this->service->destroy($ferghana);
         return redirect()->route('ferghanas.index');
     }
 }

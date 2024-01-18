@@ -1,81 +1,44 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Nukus;
+
+use App\Http\Requests\NukusRequest;
+use App\Http\Requests\NukusUpdateRequest;
+use App\Service\NukusService;
 
 class NukusController extends Controller
 {
+    public function __construct(protected NukusService $service)
+    {
 
+    }
     public function index()
     {
-        return view('nukus.show_news')->with([
-            'nukuses' => Nukus::all(),
-        ]);
+        $nukuses = $this->service->getByPaginate(10);
+        return view('nukus.show_news')->with(['nukuses' => $nukuses]);
     }
-
-
     public function create()
     {
         return view('nukus.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(NukusRequest $request)
     {
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-
-        $post = Nukus::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $path ?? null ,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('nukuses.index');
     }
-
-    public function edit(Nukus $nukus)
+    public function edit($nukus)
     {
+        $nukus = $this->service->getById($nukus);
         return view('nukus.edit_news')->with(['nukus'=>$nukus]);
     }
-
-
-    public function update(Request $request, Nukus $nukus)
+    public function update($nukus,NukusUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($nukus->photo)){
-                Storage::delete($nukus->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $nukus->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $path ?? $nukus->photo,
-        ]);
-        return redirect()->route('nukuses.index', ['nukus' => $nukus->id]);
+        $nukus = $this->service->update($nukus,$request->validated());
+        return redirect()->route('nukuses.index', ['nukus' => $nukus]);
     }
-
-
-    public function destroy(Nukus $nukus)
+    public function destroy($nukus)
     {
-        if (isset($nukus->photo)){
-            Storage::delete($nukus->photo);
-        }
-        $nukus->delete();
+        $this->service->destroy($nukus);
         return redirect()->route('nukuses.index');
     }
 }

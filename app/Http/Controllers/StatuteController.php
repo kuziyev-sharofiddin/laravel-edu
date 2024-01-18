@@ -2,57 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Statute;
+use App\Http\Requests\StatuteRequest;
+use App\Service\StatuteService;
 
 class StatuteController extends Controller
 {
+    public function __construct(protected StatuteService $service)
+    {
+
+    }
     public function index()
     {
-        return view('statute.show_news')->with([
-            'statutes' => Statute::all(),
-        ]);
+        $statutes = $this->service->getByPaginate(10);
+        return view('statute.show_news')->with(['statutes' => $statutes]);
     }
-
-
     public function create()
     {
         return view('statute.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(StatuteRequest $request)
     {
-        $statute  = Statute::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('statutes.index');
     }
-
-    public function edit(Statute $statute)
+    public function edit($statute)
     {
+        $statute = $this->service->getById($statute);
         return view('statute.edit_news')->with(['statute'=>$statute]);
     }
-
-
-    public function update(Request $request, Statute $statute)
+    public function update($statute,StatuteRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-        $statute->update([
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
-        return redirect()->route('statutes.index', ['statute' => $statute->id]);
+        $statute = $this->service->update($statute,$request->validated());
+        return redirect()->route('statutes.index', ['statute' => $statute]);
     }
-
-
-    public function destroy(Statute $statute)
+    public function destroy($statute)
     {
-        $statute->delete();
+        $this->service->destroy($statute);
         return redirect()->route('statutes.index');
     }
 }

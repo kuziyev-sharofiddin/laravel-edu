@@ -2,83 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VideoRequest;
+use App\Http\Requests\VideoUpdateRequest;
 use Illuminate\Http\Request;
-use App\Models\Video;
+use App\Service\VideoService;
 
 class VideoController extends Controller
 {
+    public function __construct(protected VideoService $service)
+    {
 
+    }
     public function index()
     {
-        return view('vid.show_news')->with([
-            'videos' => Video::all(),
-        ]);
+        $ferghanas = $this->service->getByPaginate(10);
+        return view('vid.show_news')->with(['ferghanas' => $ferghanas]);
     }
-
-
     public function create()
     {
         return view('vid.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
-
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $video = Video::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'photo' => $path ?? null ,
-            'description' => $request->description,
-            'youtube' => $request->youtube
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('videos.index');
     }
-
-    public function edit(Video $video)
+    public function edit($video)
     {
+        $video = $this->service->getById($video);
         return view('vid.edit_news')->with(['video'=>$video]);
     }
-
-
-    public function update(Request $request, Video $video)
+    public function update($video,VideoUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($video->photo)){
-                Storage::delete($video->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-
-        $video->update([
-            'title' => $request->title,
-            'photo' => $path ?? $video->photo,
-            'description' => $request->description,
-            'youtube' => $request->youtube
-        ]);
-        return redirect()->route('videos.index', ['video' => $video->id]);
-
-
+        $video = $this->service->update($video,$request->validated());
+        return redirect()->route('videos.index', ['video' => $video]);
     }
-
-
-    public function destroy(Video $video)
+    public function destroy($video)
     {
-
-        $video->delete();
+        $this->service->destroy($video);
         return redirect()->route('videos.index');
     }
 }

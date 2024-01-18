@@ -2,76 +2,47 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Image;
+use App\Http\Requests\ImageRequest;
+use App\Http\Requests\ImageUpdateRequest;
+use App\Service\ImageService;
 
 class ImageController extends Controller
 {
+    public function __construct(protected ImageService $service)
+    {
 
+    }
     public function index()
     {
-        return view('img.show_news')->with([
-            'images' => Image::all(),
-        ]);
+        $images = $this->service->getByPaginate(10);
+        return view('img.show_news')->with(['images' => $images]);
     }
-
     public function create()
     {
         return view('img.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(ImageRequest $request)
     {
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-
-        $image = Image::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'photo' => $path ?? null ,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('images.index');
     }
 
 
-    public function edit(Image $image)
+    public function edit($image)
     {
+        $image = $this->service->getById($image);
         return view('img.edit_news')->with(['image'=>$image]);
     }
 
-    public function update(Request $request, Image $image)
+    public function update($image, ImageUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($image->photo)){
-                Storage::delete($image->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $image->update([
-            'photo' => $path ?? $image->photo,
-        ]);
-        return redirect()->route('images.index', ['image' => $image->id]);
+        $image = $this->service->update($image,$request->validated());
+        return redirect()->route('images.index', ['image' => $image]);
     }
 
-    public function destroy(Image $image)
+    public function destroy($image)
     {
-        if (isset($image->photo)){
-            Storage::delete($image->photo);
-        }
-        $image->delete();
+        $this->service->destroy($image);
         return redirect()->route('images.index');
     }
 }

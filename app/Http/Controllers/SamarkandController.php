@@ -2,81 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Models\Samarkand;
+use App\Http\Requests\SamarkandRequest;
+use App\Http\Requests\SamarkandUpdateRequest;
+use App\Service\SamarkandService;
 
 class SamarkandController extends Controller
 {
+    public function __construct(protected SamarkandService $service)
+    {
 
+    }
     public function index()
     {
-        return view('sam.show_news')->with([
-            'samarkands' => Samarkand::all(),
-        ]);
+        $samarkands = $this->service->getByPaginate(10);
+        return view('sam.show_news')->with(['samarkands' => $samarkands]);
     }
-
-
     public function create()
     {
         return view('sam.add_news');
     }
-
-
-    public function store(Request $request)
+    public function store(SamarkandRequest $request)
     {
-        if ($request->hasFile('photo')){
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-
-        $post = Samarkand::create([
-            // 'user_id'=>aut h()->user()->id,
-            // "category_id"=>$request->category_id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $path ?? null ,
-        ]);
-
+        $this->service->create($request->all());
         return redirect()->route('samarkands.index');
     }
-
-    public function edit(Samarkand $samarkand)
+    public function edit($samarkand)
     {
+        $samarkand = $this->service->getById($samarkand);
         return view('sam.edit_news')->with(['samarkand'=>$samarkand]);
     }
-
-
-    public function update(Request $request, Samarkand $samarkand)
+    public function update($samarkand,SamarkandUpdateRequest $request)
     {
-        // Gate::authorize('update-post', $post);
-
-        if ($request->hasFile('photo')){
-
-            if (isset($samarkand->photo)){
-                Storage::delete($samarkand->photo);
-            }
-
-            $name = $request->file('photo')->getClientOriginalName();
-            $path = $request->file('photo')->storeAs('post-photos', $name);
-        }
-
-        $samarkand->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'photo' => $path ?? $samarkand->photo,
-        ]);
-        return redirect()->route('samarkands.index', ['samarkand' => $samarkand->id]);
+        $ferghana = $this->service->update($samarkand,$request->validated());
+        return redirect()->route('samarkands.index', ['samarkand' => $samarkand]);
     }
-
-
-    public function destroy(Samarkand $samarkand)
+    public function destroy($samarkand)
     {
-        if (isset($samarkand->photo)){
-            Storage::delete($samarkand->photo);
-        }
-        $samarkand->delete();
+        $this->service->destroy($samarkand);
         return redirect()->route('samarkands.index');
     }
 }
